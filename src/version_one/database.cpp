@@ -200,14 +200,16 @@ void modifyTask(database tasks[], int taskCount)
 void writeToFile(database tasks[], int taskCount)
 {
 	ofstream outFile;
-	outFile.open("tasks.txt");
-	for (int i = 0; i < taskCount; i++)
-	{
-		outFile << tasks[i].itemName << endl;
-		outFile << tasks[i].itemDesc << endl;
-		outFile << tasks[i].month << endl;
-		outFile << tasks[i].day << endl;
-		outFile << tasks[i].year << endl;
+	if(taskCount >= 1){
+		outFile.open("tasks.txt");
+		for (int i = 0; i < taskCount; i++)
+		{
+			outFile << tasks[i].itemName << endl;
+			outFile << tasks[i].itemDesc << endl;
+			outFile << tasks[i].month << endl;
+			outFile << tasks[i].day << endl;
+			outFile << tasks[i].year << endl;
+		}
+		outFile.close();
 	}
-	outFile.close();
 }
